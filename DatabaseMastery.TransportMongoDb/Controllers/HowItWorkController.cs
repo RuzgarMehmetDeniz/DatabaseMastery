@@ -11,7 +11,6 @@ namespace DatabaseMastery.TransportMongoDb.Controllers
         {
             _HowItWorkService = HowItWorkService;
         }
-
         public async Task<IActionResult> HowItWorkList()
         {
             var values = await _HowItWorkService.GetAllHowItWorkAsync();
