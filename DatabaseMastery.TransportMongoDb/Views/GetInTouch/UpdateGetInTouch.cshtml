@@ -1,0 +1,148 @@
+﻿@model GetGetInTouchByIdDto
+
+@{
+    ViewData["Title"] = "UpdateGetInTouch";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="brand-create-container">
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <div class="header-content">
+            <div class="header-icon">
+                📩
+            </div>
+            <div class="header-text">
+                <h1>Get In Touch Güncelle</h1>
+                <p>İletişim alanını düzenle</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <form method="post">
+        <input type="hidden" asp-for="GetInTouchId" />
+
+        <div class="form-wrapper">
+
+            <!-- SOL -->
+            <div class="form-card">
+
+                <h2 class="form-section-title">Genel Bilgiler</h2>
+
+                <div class="form-group">
+                    <label>Badge Title</label>
+                    <input asp-for="BadgeTitle" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Main Title</label>
+                    <input asp-for="MainTitle" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea asp-for="Description" class="form-input"></textarea>
+                </div>
+
+                <h2 class="form-section-title">Feature 1</h2>
+
+                <div class="form-group">
+                    <label>Feature 1 Title</label>
+                    <input asp-for="Feature1Title" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Feature 1 Description</label>
+                    <textarea asp-for="Feature1Description" class="form-input"></textarea>
+                </div>
+
+                <h2 class="form-section-title">Feature 2</h2>
+
+                <div class="form-group">
+                    <label>Feature 2 Title</label>
+                    <input asp-for="Feature2Title" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Feature 2 Description</label>
+                    <textarea asp-for="Feature2Description" class="form-input"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Image Url</label>
+                    <input asp-for="ImageUrl" class="form-input" id="imageInput" />
+                </div>
+
+                <div class="form-group">
+                    <label>Aktif mi?</label>
+                    <input type="checkbox" asp-for="Status" id="statusInput" />
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-primary">Kaydet</button>
+                </div>
+
+            </div>
+
+            <!-- SAĞ PREVIEW -->
+            <div class="preview-card">
+                <h3>Önizleme</h3>
+
+                <div class="preview-container">
+
+                    <img id="previewImage" style="width:200px; margin-bottom:10px;" />
+
+                    <h4 id="previewMain"></h4>
+                    <p id="previewDesc"></p>
+
+                    <hr />
+
+                    <b id="previewF1"></b>
+                    <p id="previewF1Desc"></p>
+
+                    <b id="previewF2"></b>
+                    <p id="previewF2Desc"></p>
+
+                    <span id="previewStatus"></span>
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<script>
+    const mainTitle = document.querySelector("[name='MainTitle']");
+    const desc = document.querySelector("[name='Description']");
+    const f1 = document.querySelector("[name='Feature1Title']");
+    const f1d = document.querySelector("[name='Feature1Description']");
+    const f2 = document.querySelector("[name='Feature2Title']");
+    const f2d = document.querySelector("[name='Feature2Description']");
+    const img = document.getElementById("imageInput");
+    const status = document.getElementById("statusInput");
+
+    function updatePreview() {
+        document.getElementById("previewMain").innerText = mainTitle.value;
+        document.getElementById("previewDesc").innerText = desc.value;
+
+        document.getElementById("previewF1").innerText = f1.value;
+        document.getElementById("previewF1Desc").innerText = f1d.value;
+
+        document.getElementById("previewF2").innerText = f2.value;
+        document.getElementById("previewF2Desc").innerText = f2d.value;
+
+        document.getElementById("previewImage").src = img.value;
+
+        document.getElementById("previewStatus").innerText =
+            status.checked ? "Aktif" : "Pasif";
+    }
+
+    document.querySelectorAll("input, textarea").forEach(x => {
+        x.addEventListener("input", updatePreview);
+    });
+
+    status.addEventListener("change", updatePreview);
+</script>
