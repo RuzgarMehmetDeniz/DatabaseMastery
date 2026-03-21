@@ -17,7 +17,6 @@ namespace DatabaseMastery.TransportMongoDb.Controllers
             return View(values);
         }
 
-
         [HttpGet]
         public IActionResult CreateHowItWork()
         {
