@@ -7,7 +7,6 @@ namespace DatabaseMastery.TransportMongoDb.Controllers
 {
     public class ShipmentTrackingController : Controller
     {
-
         private readonly IShipmentTrackingService _trackingService;
         private readonly IShipmentService _shipmentService;
         public ShipmentTrackingController(IShipmentTrackingService trackingService, IShipmentService shipmentService)
