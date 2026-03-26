@@ -146,8 +146,3 @@ Tüm admin sayfaları **Silva Admin Template**, **Bootstrap 5** ve **Bootstrap I
 
 #### Kargo Hareketi Takibi
 ![AdminHareketler](https://github.com/user-attachments/assets/e98771a4-ce08-4562-9537-b8b931914aad)
-
-
-## 📄 Lisans
-
-Bu proje eğitim amaçlı geliştirilmiştir.
